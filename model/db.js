@@ -29,7 +29,7 @@ const taskSchema = mongoose.Schema({
     Login : mongoose.model('Login',loginSchema),
     Task : mongoose.model('Task',taskSchema)
 } */
-const User = mongoose.model('Login',loginSchema);
+const User = mongoose.model('Users',loginSchema);
 const Task = mongoose.model('Task',taskSchema);
 
  

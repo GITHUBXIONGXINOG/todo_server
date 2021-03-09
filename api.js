@@ -1,5 +1,5 @@
 //导入用户集合构造函数
-const {User,Task} = require('./model/db');
+const { User, Task } = require('./model/db');
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
@@ -8,18 +8,18 @@ const bcrypt = require('bcryptjs')
 // 创建账号接口
 router.post('/api/user/register', async (req, res) => {
     //获取账户密码
-    const {account,password} = req.body
-    if (account.trim().length==0||password.trim().length==0) {
-        return res.send({ 'status': 1001, 'message': '邮件地址或者密码错误'});
+    const { account, password } = req.body
+    if (account.trim().length == 0 || password.trim().length == 0) {
+        return res.send({ 'status': 1001, 'message': '邮件地址或者密码错误' });
     }
-    let user = await User.findOne({account})
+    let user = await User.findOne({ account })
     if (!user) {
         //如果不存在该账户
-        const salt =  await bcrypt.genSalt(10)
-        const pass = await bcrypt.hash(password,salt)
+        const salt = await bcrypt.genSalt(10)
+        const pass = await bcrypt.hash(password, salt)
         const user = await User.create({
             account,
-            password:pass,
+            password: pass,
         })
         res.send({ 'status': 1000, 'message': 'The account is already registered!' });
     } else {
@@ -29,24 +29,24 @@ router.post('/api/user/register', async (req, res) => {
 });
 // 登录账号接口
 router.post('/api/user/login', async (req, res) => {
-    const {account,password} = req.body
-    if (account.trim().length==0||password.trim().length==0) {
+    const { account, password } = req.body
+    if (account.trim().length == 0 || password.trim().length == 0) {
         return res.send({ 'status': 1001, 'message': '邮件地址或者密码错误', 'data': err });
     }
-    let user = await User.findOne({account})
+    let user = await User.findOne({ account })
     console.log(user);
     if (user) {
         let isValid = await bcrypt.compare(password, user.password)
-        if (isValid){
-            res.send({'status':1000,'message':'登录成功','data': user.account })
-        }else {
+        if (isValid) {
+            res.send({ 'status': 1000, 'message': '登录成功', 'data': user.account })
+        } else {
             //密码错误
             res.send({ 'status': 1001, 'message': 'The account is right but the password is wrong!' });
         }
     } else {
-                //没有查询到用户
-                res.send({ 'status': 1002, 'message': 'The account is not existed!'});
-           
+        //没有查询到用户
+        res.send({ 'status': 1002, 'message': 'The account is not existed!' });
+
     }
 });
 // 获取所有账号接口
@@ -76,7 +76,7 @@ router.post('/api/task', (req, res) => {
                     res.send({ 'status': 1000, 'message': 'Storage successfully!' });
                 }
             });
-        } 
+        }
     })
 })
 
