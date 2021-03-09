@@ -43,5 +43,7 @@ router.post('/api/task', (req, res) => {
         }
     })
 })
+//退出账号
+router.get('/api/logout', require('./utils/logout'));
 
 module.exports = router;
