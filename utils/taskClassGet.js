@@ -4,9 +4,6 @@ const { ClassTitle } = require('../model/classtitle')
 const formidable = require('formidable')
 
 module.exports = async (req,res) => {
-
-
-    
     // // console.log(req);
     // const {taskClass,author} = req.body.data
     // if (taskClass.trim().length == 0) {

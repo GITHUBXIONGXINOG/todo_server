@@ -8,7 +8,10 @@ const taskClassSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-
+    static: {//固定项,Myday,Important,Tasks是固定项 
+        type:Boolean,
+        default: false
+    }
 })
  
 //3.根据规则创建集合
