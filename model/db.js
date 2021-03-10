@@ -12,28 +12,38 @@ const db = mongoose.connection;
 db.once('error',() => console.log('Mongo connection error'));
 db.once('open',() => console.log('Mongo connection successed'));
 /************** 定义模式loginSchema **************/
+//登录约束
 const loginSchema = mongoose.Schema({
     account : String,
     password : String
 });
+//task约束
 const taskSchema = mongoose.Schema({
-    task: String,
-    steps: Object,
-    today: Boolean,
-    pick: String,
-    files: Object,
-    note: String 
+    task: String,//task内容
+    taskClass: String,//task分类
+    steps: Object,//步骤
+    today: Boolean,//是否添加到今天
+    pick: String,//选中
+    files: Object,//文件
+    note: String, //备注
 })
+//task分类
+// const taskClassSchema = mongoose.Schema({
+//     taskClass: String,//task分类
+//     author: {//关联user集合
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: 'User'
+//     }
+// })
+//
 /************** 定义模型Model **************/
-/* const Models = {
-    Login : mongoose.model('Login',loginSchema),
-    Task : mongoose.model('Task',taskSchema)
-} */
+
 const User = mongoose.model('Users',loginSchema);
 const Task = mongoose.model('Task',taskSchema);
-
- 
+// const ClassTitle = mongoose.model('ClassTitle',taskClassSchema)
+//暴露 
 module.exports = {
     User,
     Task,
+    // ClassTitle,
 };

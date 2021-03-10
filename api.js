@@ -45,5 +45,9 @@ router.post('/api/task', (req, res) => {
 })
 //退出账号
 router.get('/api/logout', require('./utils/logout'));
+//task添加功能
+router.post('/api/tasks/class/add',require('./utils/taskClassAdd'))
+//获取分类
+router.post('/api/tasks/class/get',require('./utils/taskClassGet'))
 
 module.exports = router;

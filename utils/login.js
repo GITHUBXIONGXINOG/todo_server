@@ -14,7 +14,10 @@ module.exports = async (req, res) => {
         if (isValid) {
             //将用户信息存储在session中
             // req.session.account = user.account
-            res.send({ 'status': 1000, 'message': '登录成功', 'data': user.account })
+            res.send({ 'status': 1000, 'message': '登录成功', 'data': {
+                account: user.account,
+                _id: user._id
+            } })
             
             // req.app.locals.userInfo = user
         } else {
