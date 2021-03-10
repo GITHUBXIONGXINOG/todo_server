@@ -10,15 +10,16 @@ const articleSchema = new mongoose.Schema({
         ref: 'User'
     },
     classtitle: {//关联分类集合,存储分类_id
-        type: mongoose.Schema.Types.ObjectId,
+        // type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'ClassTitle'
     },
     pulishDate: {//创建时间
         type: Date,
-        default: Date.now
+        default: Date.now()
     },
     content: {//备注
-        type: Object
+        type: String
     },
     complete: {//完成状态
         type: Boolean,
