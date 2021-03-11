@@ -12,6 +12,16 @@ module.exports = async (req, res) => {
     if (user) {
         let isValid = await bcrypt.compare(password, user.password)
         if (isValid) {
+            req.session.save((err)=>{
+                console.log(err);
+            })
+            //保存
+            req.session.userInfo={
+                account: user.account,
+                _id: user._id,
+                loginStatus: true
+            }
+            // res.cookie()
             //将用户信息存储在session中
             // req.session.account = user.account
             res.send({ 'status': 1000, 'message': '登录成功', 'data': {
