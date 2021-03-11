@@ -54,16 +54,9 @@ router.post('/api/tasks/class/get',require('./utils/taskClassGet'))
 router.post('/api/task_add',require('./utils/taskAdd'))
 //获取存储
 router.post('/api/task_get',require('./utils/taskGet'))
- 
+//查询当前的用户信息,id,登录状态 
 router.use('/api/loginstatus',(req,res)=>{
-    // console.log(req);
-    // console.log(req.sessionID);
-    // console.log(req.session);
-    // // console.log(req.session.userinfo);
-    // if (req.headers) {
-    //     console.log(req.headers.cookie)
-    // }
-    // console.log('as');
+ 
     console.log(req.session);
     res.send(req.session.userInfo)
 
