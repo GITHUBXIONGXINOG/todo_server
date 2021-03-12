@@ -2,7 +2,7 @@ module.exports = async (req, res) => {
  // 清除浏览器保存的userid的cookie
  
 console.log('退出登录,销毁session');
-req.session.MydayId = ''
+// req.session.MydayId = ''
 
 req.session.destroy(function(err) {
     // cannot access session here

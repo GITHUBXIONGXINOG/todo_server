@@ -10,7 +10,7 @@ module.exports = async (req,res) => {
     //返回该用户的分类
     let result = await ClassTitle.find({ author: author})
     // 存储MydayId作为默认页的id
-    req.session.MydayId =  result[0]._id
+    // req.session.MydayId =  result[0]._id
     res.send(result)
 
 }

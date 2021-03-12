@@ -55,12 +55,7 @@ router.post('/api/task_add',require('./utils/taskAdd'))
 //获取存储
 router.post('/api/task_get',require('./utils/taskGet'))
 //查询当前的用户信息,id,登录状态 
-router.use('/api/loginstatus',(req,res)=>{
- 
-    console.log(req.session);
-    res.send(req.session.userInfo)
-
-})
+router.use('/api/loginstatus',require('./utils/loginStatus'))
  
 
 module.exports = router;

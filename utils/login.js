@@ -1,5 +1,7 @@
 //导入用户集合构造函数
 const { User } = require('../model/db');
+const { ClassTitle } = require('../model/classtitle')
+
 //导入加密模块
 const bcrypt = require('bcryptjs')
 
@@ -11,15 +13,18 @@ module.exports = async (req, res) => {
     let user = await User.findOne({ account })
     if (user) {
         let isValid = await bcrypt.compare(password, user.password)
+        //密码比对正确
         if (isValid) {
             req.session.save((err)=>{
                 console.log(err);
             })
-            //保存
+            let result = await ClassTitle.find({ author: user})
+            //保存信息到session
             req.session.userInfo={
-                account: user.account,
-                _id: user._id,
-                loginStatus: true
+                account: user.account,//用户账户
+                _id: user._id,//用户id
+                loginStatus: true,//用户登录状态
+                defaultPageId: result[0]._id,//默认页(myday)id
             }
             // res.cookie()
             //将用户信息存储在session中
