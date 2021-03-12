@@ -56,6 +56,7 @@ router.post('/api/task_add',require('./utils/taskAdd'))
 router.post('/api/task_get',require('./utils/taskGet'))
 //查询当前的用户信息,id,登录状态 
 router.use('/api/loginstatus',require('./utils/loginStatus'))
- 
+//查询task
+router.get('/api/search',require('./utils/search')) 
 
 module.exports = router;
