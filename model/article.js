@@ -14,6 +14,10 @@ const articleSchema = new mongoose.Schema({
         type: String,
         ref: 'ClassTitle'
     },
+    title: {//分类的标题
+        type: String
+    },
+    
     pulishDate: {//创建时间
         type: Date,
         default: Date.now()
