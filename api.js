@@ -52,7 +52,7 @@ router.post('/api/tasks/class/get',require('./utils/taskClassGet'))
 
 //存储文字task
 router.post('/api/task_add',require('./utils/taskAdd'))
-//获取存储
+//获取分类页内容
 router.post('/api/task_get',require('./utils/taskGet'))
 //查询当前的用户信息,id,登录状态 
 router.use('/api/loginstatus',require('./utils/loginStatus'))
