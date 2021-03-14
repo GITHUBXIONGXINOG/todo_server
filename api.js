@@ -60,4 +60,6 @@ router.use('/api/loginstatus',require('./utils/loginStatus'))
 router.get('/api/search',require('./utils/search')) 
 //更新task状态
 router.get('/api/task_update',require('./utils/taskUpdate'))
+//删除task
+router.get('/api/task_del',require('./utils/taskDel'))
 module.exports = router;
