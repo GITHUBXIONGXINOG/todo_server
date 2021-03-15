@@ -1,3 +1,4 @@
+const moment = require('moment');
 const { Article } = require('../model/article')
 const { ClassTitle } = require('../model/classtitle')
 
@@ -11,11 +12,19 @@ module.exports = async (req, res) => {
     let result
     if (classtitle) {
         if (title === 'Myday') {
-            result = await Article.find({ pulishDate: Date.now() })
+            let start = new Date(moment(new Date()).format('YYYY-MM-DD'))
+            let end = new Date(moment(new Date()).add(1,'days').format('YYYY-MM-DD'))
+            result = await Article.find({
+                pulishDate:{
+                    $gte:start, 
+                    $lt:end
+                }
+            })
         } else if (title === 'Important') {
             result = await Article.find({ important: true })
         } else {
             result = await Article.find({ classtitle })
+            console.log(result);
         }
     } else if (req.session.userInfo) {//默认返回
         // console.log('当前的session:',req.session.userInfo.defaultPageId);
