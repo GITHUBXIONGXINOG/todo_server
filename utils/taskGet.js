@@ -15,15 +15,18 @@ module.exports = async (req, res) => {
             let start = new Date(moment(new Date()).format('YYYY-MM-DD'))
             let end = new Date(moment(new Date()).add(1,'days').format('YYYY-MM-DD'))
             result = await Article.find({
-                pulishDate:{
+                time:{
                     $gte:start, 
                     $lt:end
-                }
+                },
+                author:req.session.userInfo._id
             })
         } else if (title === 'Important') {
-            result = await Article.find({ important: true })
+            result = await Article.find({ important: true,author:req.session.userInfo._id })
+            
+
         } else {
-            result = await Article.find({ classtitle })
+            result = await Article.find({ classtitle,author:req.session.userInfo._id  })
             console.log(result);
         }
     } else if (req.session.userInfo) {//默认返回
@@ -37,10 +40,4 @@ module.exports = async (req, res) => {
     // console.log(req.session);
 }
 
-/* task,
-author,
-classtitle,
-pulishDate,
-content  ,
-complete ,
-important  */
+ 

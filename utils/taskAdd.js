@@ -7,7 +7,8 @@ module.exports = async (req,res) => {
         author,
         classtitle,
         title,
-        pulishDate,
+        publishDate,
+        time,
         content  ,
         complete ,
         important 
@@ -17,7 +18,8 @@ module.exports = async (req,res) => {
         author,
         classtitle,
         title,
-        pulishDate,
+        publishDate,
+        time,
         content  ,
         complete ,
         important 
@@ -27,10 +29,4 @@ module.exports = async (req,res) => {
 
 }
 
-/* task,
-author,
-classtitle,
-pulishDate,
-content  ,
-complete ,
-important  */
+ 

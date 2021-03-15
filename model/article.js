@@ -18,7 +18,11 @@ const articleSchema = new mongoose.Schema({
         type: String
     },
     
-    pulishDate: {//创建时间
+    publishDate: {//创建时间
+        type: Date,
+        default: Date.now()
+    },
+    time: {//提醒时间
         type: Date,
         default: Date.now()
     },

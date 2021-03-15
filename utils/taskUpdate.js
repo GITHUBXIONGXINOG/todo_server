@@ -2,10 +2,10 @@ const { Article } = require('../model/article')
 module.exports = async (req, res) => {
     console.log('状态更新');
     let data = JSON.parse(req.query.data)
-    // console.log(data);
+    console.log(data);
     await Article.updateOne({ _id: data._id }, {
         $set: {
-            pulishDate: data.pulishDate,
+            time: data.time,
             complete: data.complete,
             important: data.important,
             task: data.task,
