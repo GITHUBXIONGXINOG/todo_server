@@ -62,4 +62,7 @@ router.get('/api/search',require('./utils/search'))
 router.get('/api/task_update',require('./utils/taskUpdate'))
 //删除task
 router.get('/api/task_del',require('./utils/taskDel'))
+//当前的task
+router.get('/api/taskinfo_get',require('./utils/taskInfoGet'))
+
 module.exports = router;
