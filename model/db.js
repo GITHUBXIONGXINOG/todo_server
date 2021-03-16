@@ -14,8 +14,10 @@ db.once('open',() => console.log('Mongo connection successed'));
 /************** 定义模式loginSchema **************/
 //登录约束
 const loginSchema = mongoose.Schema({
-    account : String,
-    password : String
+    account : String,//用户名
+    password : String,//密码
+
+
 });
 //task约束
 const taskSchema = mongoose.Schema({

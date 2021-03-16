@@ -58,7 +58,8 @@ app.use((req,res,next)=>{
 }) 
  
 app.use(api);
- 
+//设置静态资源文件 
+app.use(express.static(__dirname + '/public'));
 // 监听3000端口
 app.listen(3000);
 console.log('success listen 3000');

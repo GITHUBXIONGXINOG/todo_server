@@ -26,6 +26,10 @@ const articleSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     },
+    imgList:{//图片列表
+        type: Array,
+        default: []
+    },
     content: {//备注
         type: String
     },
