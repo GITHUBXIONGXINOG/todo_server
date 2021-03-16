@@ -11,6 +11,10 @@ const taskClassSchema = mongoose.Schema({
     static: {//固定项,Myday,Important,Tasks是固定项 
         type:Boolean,
         default: false
+    },
+    number:{//该分类的数量
+        type:Number,
+        default: 0
     }
 })
  
