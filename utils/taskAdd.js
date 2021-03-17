@@ -9,6 +9,7 @@ module.exports = async (req,res) => {
         title,
         publishDate,
         time,
+        imgList,
         content  ,
         complete ,
         important 
@@ -20,6 +21,7 @@ module.exports = async (req,res) => {
         title,
         publishDate,
         time,
+        imgList,
         content  ,
         complete ,
         important 
