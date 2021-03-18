@@ -5,10 +5,7 @@ Model和Entity都可对数据库操作造成影响
  
 const mongoose = require('mongoose');
 // 连接数据库 如果不自己创建 默认test数据库会自动生成
-// mongoose.connect('mongodb://root:123456@81.70.93.91:27017/todo',{useNewUrlParser: true,useUnifiedTopology: true});
 mongoose.connect('mongodb://root:123456@81.70.93.91:27017/todo?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false',{useNewUrlParser: true,useUnifiedTopology: true})
-//  mongodb://root:123456@81.70.93.91:27017
-//mongodb://root:123456@81.70.93.91:27017/?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false
 // 为这次连接绑定事件
 const db = mongoose.connection;
 db.once('error',() => console.log('Mongo connection error'));
