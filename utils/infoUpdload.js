@@ -4,6 +4,7 @@ const path = require('path')
 const formidable = require('formidable')
 const { cos } = require('./cos')
 module.exports = ((req, res) => {
+    debugger
     console.log('上传信息');
     // console.log(req);
     // 1.创建表单解析对象
@@ -19,8 +20,9 @@ module.exports = ((req, res) => {
         // 3.files 对象类型 保存了和上传文件相关的数据
         // res.send(files.cover.path.split('public')[1])
         console.log('------------------------------------');
-        // console.log(fields);
-        // console.log(files);
+        console.log(fields);
+        console.log(files);
+        debugger
         // console.log(fields.currentTaskId);
         // console.log(files);
         //使用split进行切割
@@ -57,7 +59,7 @@ module.exports = ((req, res) => {
             console.log(req);
         })
     })
-    // res.send('ok');
+    res.send('ok');
 
 
 })

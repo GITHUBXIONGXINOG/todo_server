@@ -65,5 +65,5 @@ router.get('/api/task_del',require('./utils/taskDel'))
 //当前的task
 router.get('/api/taskinfo_get',require('./utils/taskInfoGet'))
 //上传头像昵称
- router.post('/api/img_upload',require('./utils/infoUpdload'))
+ router.post('/api/info_updload',require('./utils/infoUpdload'))
 module.exports = router;
