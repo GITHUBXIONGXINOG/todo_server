@@ -6,16 +6,16 @@ let COS = require('cos-nodejs-sdk-v5')
 });
 //查询存储桶列表
 cos.getService(function (err, data) {
-    console.log('查询存储桶列表');
-    console.log(data && data.Buckets);
+    // console.log('查询存储桶列表');
+    // console.log(data && data.Buckets);
 });
 //查询对象列表
 cos.getBucket({
     Bucket: 'todo-1258496109', /* 必须 */
     Region: 'ap-chengdu',     /* 必须 */
 }, function (err, data) {
-    console.log('查询对象列表');
-    console.log(err || data.Contents);
+    // console.log('查询对象列表');
+    // console.log(err || data.Contents);
 });
 //删除对象
 // cos.deleteObject({
