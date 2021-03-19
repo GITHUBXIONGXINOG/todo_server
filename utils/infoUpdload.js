@@ -4,7 +4,6 @@ const path = require('path')
 const formidable = require('formidable')
 const { cos } = require('./cos')
 module.exports = ((req, res) => {
-    debugger
     console.log('上传信息');
     // console.log(req);
     // 1.创建表单解析对象
@@ -22,7 +21,7 @@ module.exports = ((req, res) => {
         console.log('------------------------------------');
         console.log(fields);
         console.log(files);
-        debugger
+        let list=[]
         // console.log(fields.currentTaskId);
         // console.log(files);
         //使用split进行切割
@@ -41,11 +40,11 @@ module.exports = ((req, res) => {
                 console.log(JSON.stringify(progressData));
             }
         }, function (err, data) {
-            // console.log(err || data);
             if (data.statusCode == '200') {
                 console.log('上传图片到腾讯云成功');
                 //删除文件
                 fs.unlinkSync(files.file.path)
+                res.send({'message': '上传图片成功','currentTask':list})
             }
         });
 
@@ -55,11 +54,15 @@ module.exports = ((req, res) => {
                 imgList: "https://todo-1258496109.cos.ap-chengdu.myqcloud.com" + files.file.path.split('public')[1]
             }
         })
-        await Article.find({ _id: fields.taskId }).then((req, res) => {
+        await Article.findOne({ _id: fields.taskId }).then((req, res) => {
             console.log(req);
+            list = req
         })
     })
-    res.send('ok');
+    // res.send({ 'status': '200', 'message': '上传图片成功', 'classpage': result })
+    // res.send({ 'status': '200', 'message': '上传图片成功'})
+
+
 
 
 })
