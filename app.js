@@ -19,8 +19,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(session({
     secret: 'secret key',
     name:'loginCookie',
-    cookie: {maxAge: 6000000,httpOnly: false},
+    cookie: {maxAge: 6000000},
     resave: false,
+    saveUninitialized: false
 }))
 //错误处理中间件
 app.use((err,req,res,next)=>{

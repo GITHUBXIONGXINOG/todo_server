@@ -38,6 +38,7 @@ module.exports = ((req, res) => {
             Body: fs.createReadStream(files.file.path), // 上传文件对象
             onProgress: function (progressData) {
                 console.log(JSON.stringify(progressData));
+                
             }
         }, function (err, data) {
             if (data.statusCode == '200') {
