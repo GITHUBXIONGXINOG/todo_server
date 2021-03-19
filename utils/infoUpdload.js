@@ -41,6 +41,7 @@ module.exports = ((req, res) => {
             }
         }, function (err, data) {
             if (data.statusCode == '200') {
+                debugger
                 console.log('上传图片到腾讯云成功');
                 //删除文件
                 fs.unlinkSync(files.file.path)
